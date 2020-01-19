@@ -230,6 +230,7 @@ else ifeq ($(platform), xenon)
    LIBS := $(PTHREAD_FLAGS)
    FLAGS += -DHAVE_MKDIR
    STATIC_LINKING = 1
+   
 # Nintendo Game Cube / Wii / WiiU
 else ifneq (,$(filter $(platform), ngc wii wiiu))
    TARGET := $(TARGET_NAME)_libretro_$(platform).a
@@ -242,7 +243,7 @@ else ifneq (,$(filter $(platform), ngc wii wiiu))
    STATIC_LINKING = 1
    HAVE_COMPAT = 1
    ifneq (,$(findstring wiiu,$(platform)))
-      CFLAGS += -DDEFAULT_CFG_NAME="\"sd:/retroarch/cores/system/atari800.cfg\""
+      CFLAGS += -DDEFAULT_CFG_NAME="\"sd:/retroarch/cores/system/beetle-saturn.cfg\""
       PLATFORM_DEFINES += -DWIIU -DHW_RVL
    else ifneq (,$(findstring wii,$(platform)))
       PLATFORM_DEFINES += -DHW_RVL -mrvl
